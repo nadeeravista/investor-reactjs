@@ -2,12 +2,27 @@ import React, { useState, ChangeEvent } from 'react';
 import { Button } from './Button';
 import { TextInput } from './TextInput';
 import { Label } from './Label';
+import { useMutation } from '@tanstack/react-query';
+import { loginQuery } from '../queries/auth';
+
+export const useLogin = () => {
+  return useMutation({
+    mutationFn: loginQuery,
+    onSuccess: (data) => {
+      console.log('Login successful:', data);
+    },
+    onError: (error) => {
+      console.error('Login failed:', error);
+    },
+  });
+};
 
 export const Login = () => {
   const [isEmailValid, setIsEmailValid] = useState(true);
   const [isPasswordValid, setIsPasswordValid] = useState(true);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const loginMutation = useLogin();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -16,6 +31,7 @@ export const Login = () => {
     setIsPasswordValid(!!password);
 
     if (isEmailValid && isPasswordValid) {
+      loginMutation.mutate({ email, password });
       console.log('Form submitted');
     }
   };
