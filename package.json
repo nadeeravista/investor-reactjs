@@ -10,7 +10,7 @@
     "preview": "vite preview",
     "lint:ts": "eslint .",
     "format:check": "prettier --check . --ignore-path .prettierignore",
-    "generate-api-client": "npx openapi-typescript-codegen --input http://localhost:3000/swagger.json --output ./src/api-client"
+    "generate-api-client": "npx openapi-typescript-codegen --input http://localhost:3000/swagger.json --output ./src/api-client --exportCore false"
   },
   "lint-staged": {
     "*.ts, *.tsx": [
