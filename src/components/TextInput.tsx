@@ -1,6 +1,6 @@
 import React from 'react';
 import { twMerge } from 'tailwind-merge';
-import { BaseProps } from '@types/BaseProps';
+import { BaseProps } from '@custom-types/BaseProps';
 
 interface TextInputProps extends BaseProps {
   error?: string;

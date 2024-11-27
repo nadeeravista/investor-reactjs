@@ -4,7 +4,7 @@ import eslint from 'vite-plugin-eslint';
 import { URL, fileURLToPath } from 'url';
 
 const eslintParams = {
-  exclude: ['**/*.svg'],
+  exclude: ['**/*.svg', './src/api-client/**/*'],
   include: ['./src/**/*'],
 };
 
@@ -32,7 +32,8 @@ export default defineConfig({
       '@components': fileURLToPath(
         new URL('./src/components', import.meta.url)
       ),
-      '@types': fileURLToPath(new URL('./src/types', import.meta.url)),
+      '@custom-types': fileURLToPath(new URL('./src/types', import.meta.url)),
+      '@context': fileURLToPath(new URL('./src/context', import.meta.url)),
     },
   },
 });

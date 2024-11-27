@@ -1,5 +1,5 @@
 import React from 'react';
-import { BaseProps } from '@types/BaseProps';
+import { BaseProps } from '@custom-types/BaseProps';
 import { twMerge } from 'tailwind-merge';
 
 type LabelProps = BaseProps;

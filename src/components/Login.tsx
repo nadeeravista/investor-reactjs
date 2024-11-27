@@ -4,25 +4,28 @@ import { TextInput } from './TextInput';
 import { Label } from './Label';
 import { useMutation } from '@tanstack/react-query';
 import { loginQuery } from '../queries/auth';
+import { useAuth } from '@context/AuthContext';
+import { useNavigate } from 'react-router-dom';
 
 export const useLogin = () => {
   return useMutation({
     mutationFn: loginQuery,
-    onSuccess: (data) => {
-      console.log('Login successful:', data);
-    },
-    onError: (error) => {
-      console.error('Login failed:', error);
-    },
   });
 };
 
+/**
+ * LoginScreen component to display login form
+ * @component
+ * This uses normal onChange based form handling
+ */
 export const Login = () => {
   const [isEmailValid, setIsEmailValid] = useState(true);
   const [isPasswordValid, setIsPasswordValid] = useState(true);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const loginMutation = useLogin();
+  const { setToken } = useAuth();
+  const navigate = useNavigate();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -30,8 +33,24 @@ export const Login = () => {
     setIsEmailValid(!!email);
     setIsPasswordValid(!!password);
 
-    if (isEmailValid && isPasswordValid) {
-      loginMutation.mutate({ email, password });
+    if (email && password) {
+      loginMutation.mutate(
+        { email, password },
+        {
+          onSuccess: (data) => {
+            if (data['accessToken']) {
+              setToken(data['accessToken']);
+              console.log(data['accessToken']);
+              console.log('Login successful');
+              navigate('/dashboard');
+            }
+          },
+          onError: () => {
+            console.error('Login failed:');
+          },
+        }
+      );
+      // console.log(useAuth().token);
       console.log('Form submitted');
     }
   };

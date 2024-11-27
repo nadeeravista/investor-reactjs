@@ -19,7 +19,8 @@
     "baseUrl": ".",
     "paths": {
       "@components/*": ["src/components/*"],
-      "@types/*": ["./src/types/*"]
+      "@custom-types/*": ["./src/types/*"],
+      "@context/*": ["./src/context/*"],
     }
   },
   "include": ["src"]
