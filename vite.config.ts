@@ -35,6 +35,9 @@ export default defineConfig({
       '@screens': fileURLToPath(new URL('./src/screens', import.meta.url)),
       '@custom-types': fileURLToPath(new URL('./src/types', import.meta.url)),
       '@context': fileURLToPath(new URL('./src/context', import.meta.url)),
+      '@custom-hooks': fileURLToPath(
+        new URL('./src/custom-hooks', import.meta.url)
+      ),
     },
   },
 });
