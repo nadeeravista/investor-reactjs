@@ -32,6 +32,7 @@ export default defineConfig({
       '@components': fileURLToPath(
         new URL('./src/components', import.meta.url)
       ),
+      '@screens': fileURLToPath(new URL('./src/screens', import.meta.url)),
       '@custom-types': fileURLToPath(new URL('./src/types', import.meta.url)),
       '@context': fileURLToPath(new URL('./src/context', import.meta.url)),
     },

@@ -18,9 +18,11 @@
     "jsx": "react-jsx",
     "baseUrl": ".",
     "paths": {
+      "@screens/*": ["src/screens/*"],
       "@components/*": ["src/components/*"],
       "@custom-types/*": ["./src/types/*"],
       "@context/*": ["./src/context/*"],
+      "@custom-hooks/*": ["./src/custom-hooks/*"],
     }
   },
   "include": ["src"]

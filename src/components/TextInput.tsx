@@ -2,10 +2,11 @@ import React from 'react';
 import { twMerge } from 'tailwind-merge';
 import { BaseProps } from '@custom-types/BaseProps';
 
-interface TextInputProps extends BaseProps {
+interface TextInputProps
+  extends BaseProps,
+    React.InputHTMLAttributes<HTMLInputElement> {
   error?: string;
   value: string;
-  onChange?: React.ChangeEventHandler<HTMLInputElement>;
 }
 
 export const TextInput = ({
@@ -15,7 +16,6 @@ export const TextInput = ({
   error,
   placeHolder,
   className,
-  onChange,
   ...props
 }: TextInputProps) => {
   return (
@@ -24,9 +24,8 @@ export const TextInput = ({
         id={id}
         name={name}
         placeholder={placeHolder}
-        className={twMerge('w-full rounded-md p-2', className)}
+        className={twMerge('w-full rounded-md p-2 border', className)}
         value={value}
-        onChange={onChange}
         {...props}
       />
       <div className="text-error">{error}</div>

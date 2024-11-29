@@ -1,3 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+.button-primary {
+  @apply text-center w-full bg-blue-400 text-white p-2 rounded-md;
+}
+
+.button-secondary {
+  @apply text-center w-full bg-blue-200 text-white p-2 rounded-md;
+}

@@ -2,8 +2,11 @@ import React from 'react';
 import { twMerge } from 'tailwind-merge';
 import { BaseProps } from '@custom-types/BaseProps';
 
-type ButtonProps = BaseProps;
-
+interface ButtonProps
+  extends BaseProps,
+    React.ButtonHTMLAttributes<HTMLButtonElement> {
+  text: string;
+}
 export const Button = ({
   text,
   id,
@@ -16,10 +19,7 @@ export const Button = ({
       id={`btn-${id}`}
       name={`btn-${name}`}
       {...props}
-      className={twMerge(
-        'ext-center w-full bg-blue-400 text-white p-2 rounded-md',
-        className
-      )}
+      className={twMerge('button-primary', className)}
     >
       {text}
     </button>

@@ -3,27 +3,22 @@ export default {
   content: ['./src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
-      opacity: {
-        92: '0.92',
-        88: '0.88',
-        12: '0.12',
-        6: '0.06',
-        4: '0.04',
-      },
       colors: {
         primary: {
-          50: '#F0E5FB',
-          100: '#E1CCF6',
-          200: '#C399ED',
-          300: '#A666E5',
-          400: '#8833DC',
-          500: '#6A00D3',
-          600: '#5500A9',
-          700: '#40007F',
-          800: '#2A0054',
-          900: '#20003F',
+          DEFAULT: '#DBEAFE',
+          50: '#EBF4FF',
+          100: '#DBEAFE',
+          200: '#BFDBFE',
+          300: '#93C5FD',
+          400: '#60A5FA',
+          500: '#3B82F6',
+          600: '#2563EB',
+          700: '#1D4ED8',
+          800: '#1E40AF',
+          900: '#1E3A8A',
         },
         neutral: {
+          DEFAULT: '#D8D8D8',
           50: '#FBFBFB',
           100: '#F7F7F7',
           200: '#EFEFEF',
@@ -36,6 +31,7 @@ export default {
           900: '#414141',
         },
         success: {
+          DEFAULT: '#5ED394',
           50: '#EFFBF4',
           100: '#DFF6EA',
           200: '#BFEDD4',
@@ -48,6 +44,7 @@ export default {
           900: '#1C3F2C',
         },
         warning: {
+          DEFAULT: '#FFAA06',
           50: '#FFF6E6',
           100: '#FFEECD',
           200: '#FFDD9B',
@@ -72,13 +69,27 @@ export default {
           800: '#661621',
           900: '#4D1119',
         },
-        gray: '#8B8B8B',
-        neon: '#751CFF',
-        secondary: '#FFF',
-        tertiary: '#EEEEEE',
-        light: '#F4F4F4',
-        medium: '#D8D8D8',
-        dark: '#000',
+        gray: {
+          DEFAULT: '#8B8B8B',
+        },
+        neon: {
+          DEFAULT: '#751CFF',
+        },
+        secondary: {
+          DEFAULT: '#FFFFFF',
+        },
+        tertiary: {
+          DEFAULT: '#EEEEEE',
+        },
+        light: {
+          DEFAULT: '#F4F4F4',
+        },
+        medium: {
+          DEFAULT: '#D8D8D8',
+        },
+        dark: {
+          DEFAULT: '#000000',
+        },
       },
     },
   },
